@@ -1,0 +1,672 @@
+@charset "UTF-8";
+:root {
+  /* Colores */
+  --negro: #393939;
+  /* Tipografía */
+  --tipo-principal: Helvetica, Arial, sans-serif;
+  --tipo-secundaria: Verdana;
+}
+
+/* (Opcional) Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --negro: #ececec;
+  }
+}
+/* (Opcional) Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+/* (Opcional) Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Reseteamos los margin y paddings de todas las etiquetas */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+*::before, *::after {
+  display: block;
+}
+
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* (Opcional) */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* (Opcional) */
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* (Opcional) Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* (Opcional) Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* (Opcional) */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  height: auto;
+  fill: currentColor;
+}
+
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--negro);
+  background-color: black;
+  /* (Opcional) */
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  /* (Opcional) */
+  font-smooth: always;
+  /* (Opcional) */
+  -webkit-font-smoothing: antialiased;
+  /* (Opcional) */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Presentation {
+  min-height: 100vh;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  font-family: "elmhurst", serif;
+  font-weight: 800;
+  font-style: normal;
+  position: fixed;
+  z-index: 4;
+  pointer-events: none;
+  text-transform: uppercase;
+  transition: opacity 1s ease;
+}
+.Presentation.isHidden {
+  opacity: 0;
+}
+.Presentation-heart {
+  min-height: 5vh;
+  width: auto;
+  background-color: transparent;
+  position: absolute;
+  transform-origin: center;
+  transform: scale(0);
+  transition: transform 3s ease;
+}
+.Presentation-heart.isBig {
+  transform: scale(20);
+}
+.Presentation-wrapper {
+  min-height: 20vh;
+  width: 70%;
+  background-color: transparent;
+  color: white;
+  font-size: 4rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+@media (max-width: 800px) {
+  .Presentation-wrapper {
+    font-size: 1.5rem;
+  }
+}
+.Presentation-wrapper-text {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.Presentation-wrapper-text.isVisible {
+  opacity: 1;
+}
+
+.Header {
+  min-height: 10vh;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem;
+  position: fixed;
+  z-index: 3;
+  pointer-events: none;
+}
+.Header-h1 {
+  max-width: 10rem;
+}
+@media (max-width: 480px) {
+  .Header-h1 {
+    max-width: 5rem;
+  }
+}
+.Header-img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.Header-ul {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: right;
+  text-align: right;
+}
+@media (max-width: 480px) {
+  .Header-ul {
+    flex-flow: row nowrap;
+    text-align: center;
+  }
+}
+.Header-li {
+  font-family: "elmhurst", serif;
+  font-weight: 800;
+  font-style: normal;
+  background-color: white;
+  color: #EF4677;
+  margin: 0.5rem;
+  padding: 0 0.5rem;
+  mix-blend-mode: difference;
+  pointer-events: all;
+}
+.Header-li:hover {
+  background-color: #EF4677;
+  color: white;
+  text-decoration: underline;
+}
+@media (max-width: 480px) {
+  .Header-li {
+    font-size: 0.8rem;
+    padding: 0.2rem;
+  }
+}
+@media (min-width: 700px) {
+  .Header-li {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  .Header-li {
+    font-size: 2rem;
+  }
+}
+
+.Main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 12rem 0 10rem 0;
+  background-image: url(../assets/bg-landscape.JPG);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  overflow: hidden;
+}
+@media (max-width: 480px) {
+  .Main {
+    padding: 0;
+  }
+}
+@media (max-width: 1600px) {
+  .Main {
+    padding: 2rem 0 5rem 0;
+  }
+}
+.Main-loveDifference {
+  position: absolute;
+  height: 125%;
+  top: -40%;
+  pointer-events: none;
+  padding: 0 1rem;
+  mix-blend-mode: difference;
+}
+.Main-container {
+  min-height: 100vh;
+  width: 80%;
+  background-color: transparent;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6rem;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 480px) {
+  .Main-container {
+    width: 100%;
+    gap: 0;
+  }
+}
+.Main-start {
+  min-height: 20vh;
+  width: 80%;
+  background-color: transparent;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  mix-blend-mode: lighten;
+  margin: 3rem 0 0 0;
+  padding: 3rem;
+  gap: 3rem;
+  color: white;
+}
+@media (max-width: 480px) {
+  .Main-start {
+    width: 100%;
+    margin: 2.5rem 0 0;
+    padding: 2rem;
+    gap: 1rem;
+  }
+}
+.Main-title {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  mix-blend-mode: lighten;
+  position: relative;
+  z-index: 5;
+}
+.Main-h2 {
+  font-family: "ltr-federal-bureau-12", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 6rem;
+  padding: 0 1.5rem;
+  background-color: #EF4677;
+}
+@media (max-width: 550px) {
+  .Main-h2 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1600px) {
+  .Main-h2 {
+    font-size: 8rem;
+  }
+}
+
+.Product {
+  min-height: 50vh;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  padding-top: 3rem;
+  gap: 2rem;
+}
+.Product-imageWrapper {
+  min-height: 10vh;
+  width: 50%;
+  background-color: transparent;
+}
+@media (max-width: 480px) {
+  .Product-imageWrapper {
+    width: 75%;
+  }
+}
+.Product-gif {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.Product-description {
+  min-height: 5vh;
+  width: 70%;
+  background-color: transparent;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 20vh;
+  color: white;
+  overflow: hidden;
+  border-radius: 0%;
+  transition: border-radius 0.5s ease;
+}
+.Product-description:hover .Product-text {
+  mix-blend-mode: hard-light;
+}
+.Product-description:hover .Product-img {
+  opacity: 1;
+}
+@media (max-width: 780px) {
+  .Product-description {
+    height: 15vh;
+  }
+}
+@media (max-width: 480px) {
+  .Product-description {
+    height: 10vh;
+  }
+}
+.Product-text {
+  min-height: 20vh;
+  width: 80%;
+  background-color: transparent;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  font-family: "elmhurst", serif;
+  font-weight: 800;
+  font-style: normal;
+  padding: 1rem;
+  color: white;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+@media (max-width: 480px) {
+  .Product-text {
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 1000px) {
+  .Product-text {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1800px) {
+  .Product-text {
+    font-size: 2.5rem;
+  }
+}
+.Product-imgContainer {
+  min-height: 40vh;
+  width: 100%;
+  background-color: transparent;
+  position: absolute;
+}
+.Product-img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.5;
+  position: absolute;
+  inset: -25% auto auto auto;
+  transform: rotate(180deg);
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.Product-img-reverse {
+  transform: rotate(0deg);
+}
+.Product-button {
+  font-family: "ltr-federal-bureau-12", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  padding: 0 1rem;
+  color: #EF4677;
+  background-color: white;
+  font-size: 2rem;
+}
+@media (max-width: 600px) {
+  .Product-button {
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 1200px) {
+  .Product-button {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1800px) {
+  .Product-button {
+    font-size: 4rem;
+  }
+}
+
+.Product-window {
+  min-height: 100vh;
+  width: 90%;
+  background-color: transparent;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../assets/JordanUno.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 3px solid #EF4677;
+  position: absolute;
+  z-index: 6;
+  inset: 0 auto auto auto;
+  display: none;
+}
+.Product-window-container {
+  min-height: 40vh;
+  width: 90%;
+  background-color: transparent;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.5rem;
+}
+.Product-window-exit {
+  min-height: 0vh;
+  width: auto;
+  background-color: transparent;
+  position: absolute;
+  inset: -6rem 0 auto auto;
+  padding: 1rem;
+}
+@media (max-width: 600px) {
+  .Product-window-exit {
+    padding: 0;
+    inset: -5rem 0 auto auto;
+  }
+}
+.Product-window-svg {
+  width: 5rem;
+  height: 5rem;
+  color: white;
+}
+.Product-window-h4 {
+  font-family: "elmhurst", serif;
+  font-weight: 800;
+  font-style: normal;
+  text-transform: uppercase;
+  color: white;
+  font-size: 3rem;
+}
+@media (max-width: 750px) {
+  .Product-window-h4 {
+    font-size: 1.5rem;
+  }
+}
+.Product-window-wrapper {
+  min-height: 80vh;
+  width: 90%;
+  background-color: transparent;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.Product-window-carrousel {
+  min-height: 10vh;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  overflow: hidden;
+}
+.Product-window-description {
+  min-height: 5vh;
+  width: 100%;
+  background-color: red;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  padding: 2rem;
+}
+.Product-window-p {
+  font-family: "elmhurst", serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 0.5rem;
+}
+.Product-window-imgWidth {
+  min-height: 5vh;
+  width: 50%;
+  background-color: transparent;
+}
+@media (max-width: 700px) {
+  .Product-window-imgWidth {
+    width: 100%;
+  }
+}
+.Product-window-img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.Product-window-buy {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+}
+.Product-window-form {
+  min-height: 10vh;
+  width: 100%;
+  background-color: #EF4677;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url(../assets/hearts.png);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  border-radius: 10px;
+  padding: 1rem;
+}
+@media (max-width: 500px) {
+  .Product-window-form {
+    flex-flow: column;
+    gap: 0.5rem;
+  }
+}
+.Product-window-select {
+  border: 2px solid white;
+  padding: 0.5rem;
+}
+.Product-button:hover {
+  color: white;
+  background-color: #EF4677;
+}
+
+.Legacy {
+  background-image: url(../assets/Legacy_bg.png);
+}
+
+.One {
+  background-image: url(../assets/JordanUno.png);
+}
+
+.isVisible {
+  display: flex;
+}
+
+.isHidden {
+  display: none;
+}/*# sourceMappingURL=index.css.map */
