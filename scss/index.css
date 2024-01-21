@@ -156,6 +156,7 @@ body {
   position: fixed;
   z-index: 4;
   pointer-events: none;
+  opacity: 1;
   text-transform: uppercase;
   transition: opacity 1s ease;
 }
@@ -249,6 +250,7 @@ body {
   padding: 0 0.5rem;
   mix-blend-mode: difference;
   pointer-events: all;
+  cursor: pointer;
 }
 .Header-li:hover {
   background-color: #EF4677;
@@ -488,6 +490,7 @@ body {
   color: #EF4677;
   background-color: white;
   font-size: 2rem;
+  cursor: pointer;
 }
 @media (max-width: 600px) {
   .Product-button {
@@ -595,6 +598,7 @@ body {
   align-items: center;
   gap: 1rem;
   color: white;
+  cursor: pointer;
   padding: 2rem;
 }
 .Product-window-p {
@@ -650,6 +654,7 @@ body {
   border: 2px solid white;
   padding: 0.5rem;
 }
+
 .Product-button:hover {
   color: white;
   background-color: #EF4677;
@@ -668,5 +673,9 @@ body {
 }
 
 .isHidden {
+  opacity: 0;
+}
+
+.isDisplayNone {
   display: none;
 }/*# sourceMappingURL=index.css.map */

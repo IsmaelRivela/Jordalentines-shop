@@ -9,6 +9,7 @@
     position: fixed;
     z-index: 4 ;
     pointer-events: none ;
+    opacity: 1 ;
 
     text-transform: uppercase;
 
@@ -31,7 +32,6 @@
             transform: scale(20)
         }
 
-        &-img{}
     }
     &-wrapper{
 
@@ -82,9 +82,7 @@
     &-img{
         @include imageFit;
     }
-    &-nav{
-
-    }
+  
     &-ul{
         
         @include displayFlex( flex , column nowrap , space-between , right);
@@ -101,8 +99,7 @@
 
         background-color: white ;
         color: #EF4677;
-        // border: 2px solid #EF4677;
-        // border-radius: 5px;
+      
         margin: 0.5rem ;
 
         padding: 0 0.5rem;
@@ -110,6 +107,8 @@
         mix-blend-mode: difference ;
 
         pointer-events: all ;
+
+        cursor: pointer;
 
         &:hover{
             background-color: #EF4677  ;
@@ -330,7 +329,6 @@
     }
 
     &-img{
-        // @include imageFit;
 
         height: 100%;
         object-fit: cover;
@@ -359,6 +357,7 @@
         background-color: white;
 
         font-size: 2rem ;
+        cursor: pointer;
 
         @media (max-width: 600px){
 
@@ -418,8 +417,6 @@
         height: 5rem;
 
         color: white ;
-
-        
     }
 
     &-h4{
@@ -455,6 +452,7 @@
 
         gap: 1rem ;
         color: white;
+        cursor: pointer;
 
         padding: 2rem ;
 
@@ -468,7 +466,6 @@
         @media(max-width: 700px){
             width: 100% ;
         }
-
     }
     &-img{
         @include imageFit;
@@ -498,18 +495,14 @@
             gap: 0.5rem ;
         }
     }
-    &-label{
-        
-    }
+    
     &-select{
     
         border: 2px solid white ;
         padding: 0.5rem ;
     
     }
-    &-option{
-
-    }
+   
 }
 
 
@@ -531,5 +524,9 @@
 }
 
 .isHidden{
+    opacity: 0 ;
+}
+
+.isDisplayNone{
     display: none;
 }
