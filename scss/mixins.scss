@@ -1,0 +1,50 @@
+@mixin displayFlex($display , $flow , $justify , $align) {
+    display: $display ; 
+    flex-flow: $flow ;
+    justify-content: $justify ;
+    align-items: $align ;
+}
+
+@mixin basicValues($minHeight , $width , $backgroundColor) {
+    min-height: $minHeight;
+    width: $width;
+    background-color: $backgroundColor;
+}
+
+@mixin imageFit{
+    width: 100%;
+    object-fit: cover;
+}
+
+@mixin imageFitHeight{
+    height: 100%;
+    object-fit: cover;
+}
+
+@mixin textPresentation{
+    color: white ;
+    font-size: 4rem ;
+
+    @media(max-width: 800px){
+        font-size: 1.5rem ;
+    }
+}
+
+@mixin federalBoldFont{
+    font-family: "ltr-federal-bureau-12", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+@mixin ElmhurstBoldFont{
+    font-family: "elmhurst", serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+@mixin ElmhurstRegularFont{
+    font-family: "elmhurst", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
