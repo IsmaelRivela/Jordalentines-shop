@@ -200,7 +200,7 @@ body {
 }
 @media (max-width: 500px) {
   .Presentation-wrapper-text {
-    font-size: 0.8rem;
+    font-size: 2rem;
   }
 }
 .Presentation-wrapper-text.isVisible {
