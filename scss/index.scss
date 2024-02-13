@@ -42,6 +42,11 @@
     &-text {
       position: absolute;
       opacity: 0;
+      text-align: center;
+
+      @media (max-width: 500px) {
+        font-size: 0.8rem;
+      }
 
       transition: opacity 0.5s ease;
 

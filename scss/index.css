@@ -195,7 +195,13 @@ body {
 .Presentation-wrapper-text {
   position: absolute;
   opacity: 0;
+  text-align: center;
   transition: opacity 0.5s ease;
+}
+@media (max-width: 500px) {
+  .Presentation-wrapper-text {
+    font-size: 0.8rem;
+  }
 }
 .Presentation-wrapper-text.isVisible {
   opacity: 1;
