@@ -80,13 +80,8 @@
   }
 
   &-ul {
-    @include displayFlex(flex, column nowrap, space-between, right);
-    text-align: right;
-
-    @media (max-width: 480px) {
-      flex-flow: row nowrap;
-      text-align: center;
-    }
+    @include displayFlex(flex, row nowrap, space-between, center);
+    text-align: center;
   }
   &-li {
     @include ElmhurstBoldFont;

@@ -8,11 +8,6 @@
 }
 
 /* (Opcional) Las adaptamos al modo oscuro */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --negro: #ececec;
-  }
-}
 /* (Opcional) Configuramos si un usuario ha activado el modo alto contraste. (WD) */
 /* (Opcional) Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
 @media (prefers-reduced-motion: reduce) {
@@ -235,16 +230,10 @@ body {
 }
 .Header-ul {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
-  align-items: right;
-  text-align: right;
-}
-@media (max-width: 480px) {
-  .Header-ul {
-    flex-flow: row nowrap;
-    text-align: center;
-  }
+  align-items: center;
+  text-align: center;
 }
 .Header-li {
   font-family: "elmhurst", serif;
