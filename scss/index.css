@@ -253,7 +253,7 @@ body {
   background-color: white;
   color: #ef4677;
   margin: 0.5rem;
-  padding: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 10px;
   mix-blend-mode: difference;
   pointer-events: all;
@@ -267,7 +267,6 @@ body {
 @media (max-width: 480px) {
   .Header-li {
     font-size: 0.8rem;
-    padding: 0.2rem;
   }
 }
 @media (min-width: 700px) {
