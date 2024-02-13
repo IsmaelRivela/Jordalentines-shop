@@ -18,13 +18,13 @@ window.onload = ()=>{
             setTimeout(() =>{
                 presentationTexts[i].classList.remove(`isVisible`)
             } , 2500 )
-        }, i * 3000);
+        }, i * 3000)
 
         setTimeout(()=>{
             
             presentationHeart.classList.add(`isBig`)
         
-        } , 7000);
+        } , 7000)
 
         setTimeout(()=>{
 
