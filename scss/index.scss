@@ -1,532 +1,493 @@
-@import 'reset.scss';
-@import 'mixins.scss';
+@import "reset.scss";
+@import "mixins.scss";
 
-.Presentation{
-    @include basicValues(100vh , 100% , black);
-    @include displayFlex(flex , row nowrap , center , center);
-    @include ElmhurstBoldFont;
+.Presentation {
+  @include basicValues(100vh, 100%, black);
+  @include displayFlex(flex, row nowrap, center, center);
+  @include ElmhurstBoldFont;
 
-    position: fixed;
-    z-index: 4 ;
-    pointer-events: none ;
-    opacity: 1 ;
+  position: fixed;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 1;
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 
-    transition: opacity 1s ease;
+  transition: opacity 1s ease;
 
-    &.isHidden{
-        opacity: 0 ;
+  &.isHidden {
+    opacity: 0;
+  }
+
+  &-heart {
+    @include basicValues(5vh, auto, transparent);
+
+    position: absolute;
+
+    transform-origin: center;
+    transform: scale(0);
+    transition: transform 3s ease;
+
+    &.isBig {
+      transform: scale(20);
     }
+  }
+  &-wrapper {
+    @include basicValues(20vh, 70%, transparent);
+    @include textPresentation;
+    @include displayFlex(flex, column nowrap, center, center);
 
-    &-heart{
-        @include basicValues(5vh , auto , transparent);
+    position: relative;
 
-        position: absolute;
+    &-text {
+      position: absolute;
+      opacity: 0;
 
-        transform-origin: center ;
-        transform: scale(0);
-        transition: transform 3s ease;
+      transition: opacity 0.5s ease;
 
-        &.isBig{
-            transform: scale(20)
-        }
-
+      &.isVisible {
+        opacity: 1;
+      }
     }
-    &-wrapper{
-
-        @include basicValues(20vh , 70% , transparent);
-        @include textPresentation;
-        @include displayFlex(flex , column nowrap , center , center);
-
-        position: relative;
-
-        &-text{
-            position: absolute;
-            opacity: 0;
-
-            transition: opacity 0.5s ease;
-
-            &.isVisible{
-                opacity: 1;
-            }
-        }
-
-
-    }
-
-
+  }
 }
 
+.Header {
+  @include basicValues(10vh, 100%, transparent);
+  @include displayFlex(flex, row nowrap, space-between, center);
 
+  padding: 2rem 2rem;
+  position: fixed;
+  z-index: 3;
 
-.Header{
-    @include basicValues(10vh , 100% , transparent);
-    @include displayFlex(flex , row nowrap , space-between , center);
+  pointer-events: none;
 
-    padding: 2rem 2rem ;
-    position: fixed ;
-    z-index: 3;
+  &-h1 {
+    max-width: 10rem;
 
-    pointer-events: none ;
+    @media (max-width: 480px) {
+      max-width: 5rem;
+    }
+  }
 
-    &-h1{
+  &-img {
+    @include imageFit;
+  }
 
-        max-width: 10rem;
+  &-ul {
+    @include displayFlex(flex, column nowrap, space-between, right);
+    text-align: right;
 
-        @media(max-width: 480px ){
-            max-width: 5rem ;
-        }
+    @media (max-width: 480px) {
+      flex-flow: row nowrap;
+      text-align: center;
+    }
+  }
+  &-li {
+    @include ElmhurstBoldFont;
+
+    background-color: white;
+    color: #ef4677;
+
+    margin: 0.5rem;
+
+    padding: 0 0.5rem;
+    border-radius: 10px;
+
+    mix-blend-mode: difference;
+
+    pointer-events: all;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ef4677;
+      color: white;
+      text-decoration: underline;
     }
 
-    &-img{
-        @include imageFit;
+    @media (max-width: 480px) {
+      font-size: 0.8rem;
+      padding: 0.2rem;
     }
-  
-    &-ul{
-        
-        @include displayFlex( flex , column nowrap , space-between , right);
-        text-align: right;
 
-        @media(max-width: 480px){
-            flex-flow: row nowrap;
-            text-align: center ;
-        }
+    @media (min-width: 700px) {
+      font-size: 1rem;
     }
-    &-li{
-        
-        @include ElmhurstBoldFont;
 
-        background-color: white ;
-        color: #EF4677;
-      
-        margin: 0.5rem ;
-
-        padding: 0 0.5rem;
-
-        mix-blend-mode: difference ;
-
-        pointer-events: all ;
-
-        cursor: pointer;
-
-        &:hover{
-            background-color: #EF4677  ;
-            color: white ;
-            text-decoration: underline;
-        }
-
-        @media(max-width: 480px){
-            font-size: 0.8rem ;
-            padding: 0.2rem ;
-
-        }
-
-        @media(min-width: 700px){
-            font-size: 1rem ;
-        }
-
-        @media(min-width: 700px){
-            font-size: 2rem ;
-        }
-
+    @media (min-width: 700px) {
+      font-size: 2rem;
     }
+  }
 }
 
 // cambiar nombre bg
 
-.Main{
-    @include displayFlex( flex , column nowrap , center , center );
+.Main {
+  @include displayFlex(flex, column nowrap, center, center);
 
+  position: relative;
+
+  padding: 12rem 0 10rem 0;
+
+  background-image: url(../assets/bg-landscape.JPG);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+
+  overflow: hidden;
+
+  @media (max-width: 480px) {
+    padding: 0;
+  }
+
+  @media (max-width: 1600px) {
+    padding: 2rem 0 5rem 0;
+  }
+
+  &-loveDifference {
+    position: absolute;
+    height: 125%;
+    top: calc(-200% / 5);
+
+    pointer-events: none;
+
+    padding: 0 1rem;
+
+    mix-blend-mode: difference;
+
+    @media (max-width: 480px) {
+    }
+  }
+
+  &-container {
+    @include basicValues(100vh, 80%, transparent);
+    @include displayFlex(flex, column nowrap, flex-start, center);
+
+    gap: 6rem;
 
     position: relative;
+    z-index: 1;
 
-    padding: 12rem 0 10rem 0;
+    @media (max-width: 480px) {
+      width: 100%;
+      gap: 0;
+    }
+  }
+  &-start {
+    @include basicValues(20vh, 80%, transparent);
+    @include displayFlex(flex, column nowrap, flex-start, center);
 
-    background-image: url(../assets/bg-landscape.JPG);
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
+    mix-blend-mode: lighten;
+
+    margin: 3rem 0 0 0;
+    padding: 3rem;
+    gap: 3rem;
+    color: white;
+
+    @media (max-width: 480px) {
+      width: 100%;
+      margin: 2.5rem 0 0;
+      padding: 2rem;
+      gap: 1rem;
+    }
+  }
+
+  &-title {
+    @include imageFit;
+    mix-blend-mode: lighten;
+    position: relative;
+    z-index: 5;
+  }
+
+  &-h2 {
+    @include federalBoldFont;
+    font-size: 6rem;
+    padding: 0 1.5rem;
+    background-color: #ef4677;
+
+    @media (max-width: 550px) {
+      font-size: 2rem;
+    }
+    @media (min-width: 1600px) {
+      font-size: 8rem;
+    }
+  }
+}
+
+.Product {
+  @include basicValues(50vh, 100%, transparent);
+  @include displayFlex(flex, column nowrap, flex-start, center);
+
+  position: relative;
+  padding-top: 3rem;
+  gap: 2rem;
+
+  &-imageWrapper {
+    @include basicValues(10vh, 50%, transparent);
+
+    @media (max-width: 480px) {
+      width: 75%;
+    }
+  }
+  &-gif {
+    @include imageFit;
+  }
+  &-description {
+    @include basicValues(5vh, 70%, transparent);
+    @include displayFlex(flex, row nowrap, center, center);
+
+    position: relative;
+    height: 20vh;
+
+    color: white;
 
     overflow: hidden;
 
-    @media (max-width: 480px){
-        padding: 0 ;
+    border-radius: 10px;
+
+    transition: border-radius 0.5s ease;
+
+    &:hover {
+      .Product-text {
+        mix-blend-mode: hard-light;
+      }
+
+      .Product-img {
+        opacity: 1;
+      }
     }
 
-    @media (max-width: 1600px){
-        padding: 2rem 0 5rem 0;
+    @media (max-width: 780px) {
+      height: 15vh;
     }
 
-    &-loveDifference{
-        position: absolute;
-        height: 125% ;
-        top: calc(-200% / 5 ) ;
-
-        pointer-events: none ;
-
-        padding: 0 1rem ;
-
-        mix-blend-mode: difference;
-
-        @media (max-width: 480px){
-
-        }
+    @media (max-width: 480px) {
+      height: 10vh;
     }
+  }
 
-    &-container{
-        @include basicValues( 100vh , 80% , transparent );
-        @include displayFlex( flex , column nowrap , flex-start , center );
+  &-text {
+    @include basicValues(20vh, 80%, transparent);
+    @include displayFlex(flex, column nowrap, center, center);
+    @include ElmhurstBoldFont;
 
-        gap: 6rem ;
+    padding: 1rem;
 
-        position: relative;
-        z-index: 1;
-
-        @media (max-width: 480px){
-            width: 100%;
-            gap: 0 ;
-        }
-    }
-    &-start{
-        @include basicValues(20vh , 80% , transparent);
-        @include displayFlex(flex , column nowrap , flex-start , center );
-
-        mix-blend-mode: lighten ;
-
-        margin: 3rem 0 0 0 ;
-        padding: 3rem ;
-        gap: 3rem;
-        color: white;
-
-        @media (max-width: 480px){
-            width: 100%;
-            margin: 2.5rem 0 0 ;
-            padding: 2rem ;
-            gap: 1rem ;
-        }
-    }
-
-    &-title{
-        @include imageFit;
-        mix-blend-mode: lighten;
-        position: relative;
-        z-index: 5;
-    }
-
-    &-h2{
-        @include federalBoldFont;
-        font-size: 6rem;
-        padding: 0 1.5rem;
-        background-color: #EF4677;
-
-        @media (max-width: 550px){
-            font-size: 2rem;
-        }
-        @media (min-width: 1600px){
-            font-size: 8rem;
-        }
-
-    }
-
-}
-
-.Product{
-
-    @include basicValues( 50vh , 100% , transparent);
-    @include displayFlex( flex , column nowrap , flex-start , center );
+    color: white;
 
     position: relative;
-    padding-top: 3rem ;
-    gap: 2rem ;
 
-    &-imageWrapper{
-        @include basicValues(10vh , 50% , transparent);
+    text-align: center;
 
-        @media (max-width: 480px){
-            width: 75% ;
-        }
-    }
-    &-gif{
-        @include imageFit;
-    }
-    &-description{
-        @include basicValues( 5vh , 70% , transparent );
-        @include displayFlex( flex , row nowrap , center , center );
-        
-        position: relative;
-        height: 20vh;
+    text-transform: uppercase;
 
-        color: white;
-
-        overflow: hidden;
-
-        border-radius: 0% ;
-
-
-        transition: border-radius 0.5s ease ;
-
-        &:hover {
-            
-
-            .Product-text{
-
-                mix-blend-mode: hard-light ;
-                
-            }
-
-            .Product-img{
-                opacity: 1 ;
-            }
-            
-        }
-
-        @media(max-width: 780px){
-            height: 15vh ;
-        }
-
-        @media(max-width: 480px){
-            height: 10vh ;
-        }
-
-        
-
+    @media (max-width: 480px) {
+      font-size: 0.8rem;
     }
 
-    &-text{
+    @media (min-width: 1000px) {
+      font-size: 2rem;
+    }
+    @media (min-width: 1800px) {
+      font-size: 2.5rem;
+    }
+  }
 
-        @include basicValues( 20vh , 80% , transparent );
-        @include displayFlex( flex , column nowrap , center , center );
-        @include ElmhurstBoldFont;
+  &-imgContainer {
+    @include basicValues(40vh, 100%, transparent);
+    position: absolute;
+  }
 
-        padding: 1rem ;
+  &-img {
+    height: 100%;
+    object-fit: cover;
 
-        color: white;
+    opacity: 0.5;
 
-        position: relative;
+    position: absolute;
 
-        text-align: center;
+    inset: -25% auto auto auto;
 
-        text-transform: uppercase ;
+    transform: rotate(180deg);
 
-        @media (max-width: 480px){
+    pointer-events: none;
 
-            font-size: 0.8rem ;
-        }
+    transition: opacity 0.5s ease;
 
-        @media(min-width: 1000px){
-            font-size: 2rem ;
-        }
-        @media (min-width: 1800px){
-            font-size: 2.5rem ;
-        }
+    &-reverse {
+      transform: rotate(0deg);
+    }
+  }
+  &-button {
+    @include federalBoldFont;
+    padding: 0 1rem;
+    color: #ef4677;
+    background-color: white;
+    border-radius: 10px;
+
+    font-size: 2rem;
+    cursor: pointer;
+
+    @media (max-width: 600px) {
+      font-size: 0.8rem;
     }
 
-    &-imgContainer{
-        @include basicValues( 40vh , 100% , transparent);
-        position: absolute ;
-
+    @media (min-width: 1200px) {
+      font-size: 3rem;
     }
-
-    &-img{
-
-        height: 100%;
-        object-fit: cover;
-
-        opacity: 0.5;
-
-        position: absolute ;
-
-        inset: -25% auto auto auto ;
-
-        transform: rotate(180deg);
-
-        pointer-events: none ;
-
-        transition: opacity 0.5s ease ;
-
-        &-reverse{
-            transform: rotate(0deg);
-        }
+    @media (min-width: 1800px) {
+      font-size: 4rem;
     }
-    &-button{
-
-        @include federalBoldFont;
-        padding: 0 1rem;
-        color: #EF4677 ;
-        background-color: white;
-
-        font-size: 2rem ;
-        cursor: pointer;
-
-        @media (max-width: 600px){
-
-            font-size: 0.8rem ;
-        }
-
-        @media(min-width: 1200px){
-            font-size: 3rem ;
-        }
-        @media (min-width: 1800px){
-            font-size: 4rem ;
-        }
-    }
-
+  }
 }
 
-.Product-window{
-    @include basicValues(100vh , 90% , transparent);
-    @include displayFlex(flex , row nowrap , center , center);
+.Product-window {
+  @include basicValues(100vh, 90%, transparent);
+  @include displayFlex(flex, row nowrap, center, center);
 
-    background-image: url(../assets/JordanUno.png);
+  background-image: url(../assets/JordanUno.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border-radius: 10px;
+  border: 3px solid #ef4677;
+
+  position: absolute;
+  z-index: 6;
+
+  inset: 0 auto auto auto;
+
+  display: none;
+
+  &-container {
+    @include basicValues(40vh, 90%, transparent);
+    @include displayFlex(flex, column nowrap, space-between, center);
+
+    padding: 1rem 0.5rem;
+  }
+
+  &-exit {
+    @include basicValues(0vh, auto, transparent);
+    position: absolute;
+    inset: -6rem 0 auto auto;
+    padding: 1rem;
+
+    @media (max-width: 600px) {
+      padding: 0;
+
+      inset: -5rem 0 auto auto;
+    }
+  }
+  &-svg {
+    width: 5rem;
+    height: 5rem;
+
+    color: white;
+  }
+
+  &-h4 {
+    @include ElmhurstBoldFont;
+    text-transform: uppercase;
+    color: white;
+
+    font-size: 3rem;
+
+    @media (max-width: 750px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &-wrapper {
+    @include basicValues(80vh, 90%, transparent);
+    @include displayFlex(flex, column nowrap, flex-start, center);
+  }
+
+  &-carrousel {
+    @include basicValues(10vh, 100%, transparent);
+    @include displayFlex(flex, row nowrap, center, center);
+
+    padding: 0.5rem;
+
+    overflow: hidden;
+  }
+
+  &-description {
+    @include basicValues(5vh, 100%, red);
+    @include displayFlex(flex, column nowrap, center, center);
+
+    gap: 1rem;
+    color: white;
+    cursor: pointer;
+
+    padding: 2rem;
+  }
+  &-p {
+    @include ElmhurstRegularFont;
+    padding: 0.5rem;
+  }
+  &-imgWidth {
+    @include basicValues(5vh, 50%, transparent);
+    @media (max-width: 700px) {
+      width: 100%;
+    }
+  }
+  &-img {
+    @include imageFit;
+  }
+
+  &-buy {
+    @include displayFlex(flex, column nowrap, flex-start, center);
+    width: 90%;
+  }
+  &-form {
+    @include basicValues(10vh, 100%, #ef4677);
+    @include displayFlex(flex, row nowrap, space-between, center);
+
+    background-image: url(../assets/hearts.png);
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
 
-    border: 3px solid #EF4677 ;
-    
-    position: absolute ;
-    z-index: 6 ;
+    border-radius: 10px;
 
-    inset: 0 auto auto auto;
+    padding: 1rem;
 
-    display: none;
+    @media (max-width: 500px) {
+      flex-flow: column;
 
-
-    &-container{
-        @include basicValues(40vh , 90% , transparent );
-        @include displayFlex(flex , column nowrap , space-between , center);
-
-        padding: 1rem 0.5rem; 
+      gap: 0.5rem;
     }
+  }
 
-    &-exit{
-        @include basicValues(0vh , auto , transparent );
-        position: absolute;
-        inset: -6rem 0 auto auto;
-        padding: 1rem ;
-
-        @media(max-width: 600px){
-            padding: 0;
-
-            inset: -5rem 0 auto auto ;
-        }
-    }
-    &-svg{
-        width: 5rem;
-        height: 5rem;
-
-        color: white ;
-    }
-
-    &-h4{
-        @include ElmhurstBoldFont;
-        text-transform: uppercase;
-        color: white;
-
-        font-size: 3rem ;
-        
-        @media(max-width: 750px){
-            font-size: 1.5rem ;
-        }
-    }
-    
-    &-wrapper{
-        @include basicValues(80vh , 90% , transparent );
-        @include displayFlex(flex , column nowrap , flex-start, center );
-
-    }
-    
-    &-carrousel{
-        @include basicValues(10vh , 100% , transparent );
-        @include displayFlex(flex , row nowrap , center , center );
-
-        padding: 0.5rem ;
-
-        overflow: hidden;
-    }
-    
-    &-description{
-        @include basicValues(5vh , 100% , red );
-        @include displayFlex(flex , column nowrap , center , center);
-
-        gap: 1rem ;
-        color: white;
-        cursor: pointer;
-
-        padding: 2rem ;
-
-    }
-    &-p{
-        @include ElmhurstRegularFont;
-        padding: 0.5rem ;
-    }
-    &-imgWidth{
-        @include basicValues(5vh , 50% , transparent);
-        @media(max-width: 700px){
-            width: 100% ;
-        }
-    }
-    &-img{
-        @include imageFit;
-    }
-
-    &-buy{
-        @include displayFlex(flex , column nowrap , flex-start , center);
-        width: 90%; 
-    }
-    &-form{
-        @include basicValues(10vh , 100% , #EF4677 );
-        @include displayFlex(flex , row nowrap , space-between , center );
-
-        
-        background-image: url(../assets/hearts.png);
-        background-position: center;
-        background-repeat: repeat;
-        background-size: cover;
-
-        border-radius: 10px ;
-
-        padding: 1rem ;
-
-        @media(max-width: 500px){
-            flex-flow: column ;
-
-            gap: 0.5rem ;
-        }
-    }
-    
-    &-select{
-    
-        border: 2px solid white ;
-        padding: 0.5rem ;
-    
-    }
-   
+  &-select {
+    border: 2px solid white;
+    padding: 0.5rem;
+  }
 }
 
-
-.Product-button:hover{
-    color: white;
-    background-color: #EF4677;
+.Product-button:hover {
+  color: white;
+  background-color: #ef4677;
 }
 
-.Legacy{
-    background-image: url(../assets/Legacy_bg.png);
+.Legacy {
+  background-image: url(../assets/Legacy_bg.png);
 }
 
-.One{
-    background-image: url(../assets/JordanUno.png);
+.One {
+  background-image: url(../assets/JordanUno.png);
 }
 
-.isVisible{
-    display: flex;
+.isVisible {
+  display: flex;
 }
 
-.isHidden{
-    opacity: 0 ;
+.isHidden {
+  opacity: 0;
 }
 
-.isDisplayNone{
-    display: none;
+.isDisplayNone {
+  display: none;
 }

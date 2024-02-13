@@ -245,15 +245,16 @@ body {
   font-weight: 800;
   font-style: normal;
   background-color: white;
-  color: #EF4677;
+  color: #ef4677;
   margin: 0.5rem;
   padding: 0 0.5rem;
+  border-radius: 10px;
   mix-blend-mode: difference;
   pointer-events: all;
   cursor: pointer;
 }
 .Header-li:hover {
-  background-color: #EF4677;
+  background-color: #ef4677;
   color: white;
   text-decoration: underline;
 }
@@ -359,7 +360,7 @@ body {
   font-style: normal;
   font-size: 6rem;
   padding: 0 1.5rem;
-  background-color: #EF4677;
+  background-color: #ef4677;
 }
 @media (max-width: 550px) {
   .Main-h2 {
@@ -411,7 +412,7 @@ body {
   height: 20vh;
   color: white;
   overflow: hidden;
-  border-radius: 0%;
+  border-radius: 10px;
   transition: border-radius 0.5s ease;
 }
 .Product-description:hover .Product-text {
@@ -487,8 +488,9 @@ body {
   font-weight: 800;
   font-style: normal;
   padding: 0 1rem;
-  color: #EF4677;
+  color: #ef4677;
   background-color: white;
+  border-radius: 10px;
   font-size: 2rem;
   cursor: pointer;
 }
@@ -520,7 +522,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border: 3px solid #EF4677;
+  border-radius: 10px;
+  border: 3px solid #ef4677;
   position: absolute;
   z-index: 6;
   inset: 0 auto auto auto;
@@ -632,7 +635,7 @@ body {
 .Product-window-form {
   min-height: 10vh;
   width: 100%;
-  background-color: #EF4677;
+  background-color: #ef4677;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -657,7 +660,7 @@ body {
 
 .Product-button:hover {
   color: white;
-  background-color: #EF4677;
+  background-color: #ef4677;
 }
 
 .Legacy {
