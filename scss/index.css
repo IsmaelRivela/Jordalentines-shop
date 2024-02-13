@@ -304,9 +304,7 @@ body {
   }
 }
 .Main-loveDifference {
-  position: absolute;
-  height: 125%;
-  top: -40%;
+  position: fixed;
   pointer-events: none;
   padding: 0 1rem;
   mix-blend-mode: difference;

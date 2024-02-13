@@ -150,10 +150,8 @@
   }
 
   &-loveDifference {
-    position: absolute;
-    height: 125%;
-    top: calc(-200% / 5);
-
+    position: fixed;
+ 
     pointer-events: none;
 
     padding: 0 1rem;
