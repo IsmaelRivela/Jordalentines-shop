@@ -441,7 +441,7 @@
   }
   &-form {
     @include basicValues(10vh, 100%, #ef4677);
-    @include displayFlex(flex, row nowrap, space-between, center);
+    @include displayFlex(flex, column nowrap, space-between, center);
 
     background-image: url(../assets/hearts.png);
     background-position: center;

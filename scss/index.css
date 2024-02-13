@@ -630,7 +630,7 @@ body {
   width: 100%;
   background-color: #ef4677;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
   background-image: url(../assets/hearts.png);
