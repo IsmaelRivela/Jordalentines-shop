@@ -81,6 +81,7 @@
 
   &-ul {
     @include displayFlex(flex, row nowrap, space-between, center);
+    background-color: white;
     text-align: center;
   }
   &-li {
@@ -94,7 +95,7 @@
     padding: 0.2rem 0.5rem;
     border-radius: 10px;
 
-    mix-blend-mode: difference;
+    transition: background-color 0.5s ease;
 
     pointer-events: all;
 
@@ -117,6 +118,9 @@
     @media (min-width: 700px) {
       font-size: 2rem;
     }
+  }
+  &-a{
+    cursor: pointer;
   }
 }
 
@@ -239,6 +243,7 @@
     height: 20vh;
 
     color: white;
+    cursor: pointer;
 
     overflow: hidden;
 
@@ -271,6 +276,8 @@
     @include ElmhurstBoldFont;
 
     padding: 1rem;
+
+    pointer-events: none;
 
     color: white;
 
@@ -323,6 +330,8 @@
     color: #ef4677;
     background-color: white;
     border-radius: 10px;
+
+    transition: background-color 0.5s ease;
 
     font-size: 2rem;
     cursor: pointer;

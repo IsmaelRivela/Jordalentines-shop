@@ -233,6 +233,7 @@ body {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
   text-align: center;
 }
 .Header-li {
@@ -244,7 +245,7 @@ body {
   margin: 0.5rem;
   padding: 0.2rem 0.5rem;
   border-radius: 10px;
-  mix-blend-mode: difference;
+  transition: background-color 0.5s ease;
   pointer-events: all;
   cursor: pointer;
 }
@@ -267,6 +268,9 @@ body {
   .Header-li {
     font-size: 2rem;
   }
+}
+.Header-a {
+  cursor: pointer;
 }
 
 .Main {
@@ -404,6 +408,7 @@ body {
   position: relative;
   height: 20vh;
   color: white;
+  cursor: pointer;
   overflow: hidden;
   border-radius: 10px;
   transition: border-radius 0.5s ease;
@@ -436,6 +441,7 @@ body {
   font-weight: 800;
   font-style: normal;
   padding: 1rem;
+  pointer-events: none;
   color: white;
   position: relative;
   text-align: center;
@@ -484,6 +490,7 @@ body {
   color: #ef4677;
   background-color: white;
   border-radius: 10px;
+  transition: background-color 0.5s ease;
   font-size: 2rem;
   cursor: pointer;
 }
