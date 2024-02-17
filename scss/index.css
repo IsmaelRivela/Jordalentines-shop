@@ -213,6 +213,7 @@ body {
   padding: 2rem 2rem;
   position: fixed;
   z-index: 3;
+  mix-blend-mode: multiply;
   pointer-events: none;
 }
 .Header-h1 {
